@@ -6,8 +6,12 @@
 </head>
 <body>
    <h1>Log in success</h1>
-    <h2>Welcome <span th:text="${customer.username}" /></h2>
+   <div th:object="${customer}">
+    <h2>Welcome <span th:text="*{username}" /></h2>
+    <h2>Welcome <span th:text="*{email}" /></h2>
+   </div>
    <br>
     <a th:href="@{/customerLogin}"><button>Log Out</button></a>
+    <a th:href="@{/customerHome/changePassword(customerId=${customer.username})}"><button>Change Password</button></a>
 </body>
 </html>

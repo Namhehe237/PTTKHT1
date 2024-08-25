@@ -1,6 +1,8 @@
 package PTTKHT.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="customer")
@@ -9,7 +11,10 @@ public class Customer {
     @Column(name="username")
     private String username;
 
+
     @Column(name="password")
+    @Size(min = 8,message = "The length of password must be larger or equal 8")
+//    @Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%&*]).*$")
     private String password;
 
     @Column(name="email")
